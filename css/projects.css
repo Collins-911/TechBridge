@@ -1,111 +1,49 @@
+/* Projects Page CSS - 5 Cards Per Row */
 .projects-page {
-  color: #333;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  padding: 2rem 0 4rem;
+  background-color: #f8fafc;
+  min-height: 100vh;
 }
 
-.projects-header {
-  position: relative;
-  overflow: hidden;
-  background: linear-gradient(120deg, #2563eb, #1e40af);
-  color: white;
-  padding: 5rem 1rem;
-  text-align: center;
-  margin-bottom: 3rem;
-}
-
-.floating-icon {
-  position: absolute;
-  color: rgba(255, 255, 255, 0.1);
-  font-size: 2.5rem;
-  z-index: 0;
-  animation: float 15s infinite linear;
-}
-
-.icon-1 { top: 10%; left: 5%; animation-delay: 0s; }
-.icon-2 { top: 20%; right: 10%; animation-delay: 1s; }
-.icon-3 { bottom: 15%; left: 15%; animation-delay: 2s; }
-.icon-4 { top: 30%; right: 20%; animation-delay: 3s; }
-
-@keyframes float {
-  0% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-20px) rotate(10deg); }
-  100% { transform: translateY(0) rotate(0deg); }
-}
-
-.header-content {
-  position: relative;
-  z-index: 1;
-  max-width: 800px;
+.projects-container {
+  max-width: 1800px;
   margin: 0 auto;
+  padding: 0 2rem;
 }
 
-.projects-title {
-  font-size: 3rem;
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #1e3a8a;
   margin-bottom: 1rem;
   font-weight: 700;
 }
 
-.projects-subtitle {
+.section-subtitle {
+  text-align: center;
   font-size: 1.25rem;
-  margin-bottom: 2rem;
-  opacity: 0.9;
-  font-weight: 300;
-}
-
-.projects-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
-}
-
-.projects-filters {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 0.8rem;
-  margin-bottom: 2rem;
-}
-
-.filter-button {
-  padding: 0.6rem 1.2rem;
-  background-color: transparent;
-  color: #2563eb;
-  border: 1px solid #2563eb;
-  border-radius: 30px;
-  cursor: pointer;
-  font-weight: 500;
-  transition: all 0.3s ease;
-}
-
-.filter-button:hover {
-  background-color: rgba(37, 99, 235, 0.1);
-}
-
-.filter-button.active {
-  background-color: #2563eb;
-  color: white;
-  font-weight: 600;
+  color: #4b5563;
+  margin-bottom: 3rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.5rem;
 }
 
 .project-card {
   background: white;
-  border-radius: 12px;
+  border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 2px 4px rgba(30, 58, 138, 0.1);
   display: flex;
   flex-direction: column;
-}
-
-.project-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
+  border: 1px solid #e2e8f0;
 }
 
 .project-image-container {
@@ -118,140 +56,121 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s ease;
-}
-
-.project-card:hover .project-image {
-  transform: scale(1.05);
-}
-
-.project-icon {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background-color: rgba(255, 255, 255, 0.9);
-  color: #2563eb;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .project-tags {
   position: absolute;
-  bottom: 10px;
-  left: 10px;
+  bottom: 0.5rem;
+  left: 0.5rem;
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
 }
 
 .project-tag {
-  background-color: rgba(37, 99, 235, 0.9);
+  background-color: rgba(30, 58, 138, 0.9);
   color: white;
-  padding: 0.3rem 0.6rem;
+  padding: 0.2rem 0.5rem;
   border-radius: 4px;
   font-size: 0.7rem;
   font-weight: 500;
 }
 
 .project-content {
-  padding: 1.5rem;
+  padding: 1.2rem;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
 }
 
 .project-content h3 {
-  margin: 0 0 0.8rem;
-  font-size: 1.4rem;
-  color: #1e40af;
+  margin: 0 0 0.6rem;
+  font-size: 1.1rem;
+  color: #1e3a8a;
+  font-weight: 600;
 }
 
 .project-content p {
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   color: #4b5563;
-  margin-bottom: 1.5rem;
-  line-height: 1.5;
+  margin-bottom: 1.2rem;
+  line-height: 1.4;
   flex-grow: 1;
 }
 
 .project-actions {
   display: flex;
-  gap: 0.8rem;
-  margin-top: auto;
+  gap: 0.6rem;
 }
 
 .project-button {
-  padding: 0.6rem 1.2rem;
-  border-radius: 6px;
+  padding: 0.5rem 0.8rem;
+  border-radius: 4px;
   cursor: pointer;
   font-weight: 600;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   flex-grow: 1;
   text-align: center;
   border: none;
+  font-size: 0.85rem;
 }
 
 .project-button.primary {
-  background-color: #2563eb;
+  background-color: #1e3a8a;
   color: white;
 }
 
 .project-button.primary:hover {
   background-color: #1e40af;
-  transform: translateY(-2px);
 }
 
 .project-button.secondary {
   background-color: transparent;
-  color: #2563eb;
-  border: 1px solid #2563eb;
+  color: #1e3a8a;
+  border: 1px solid #1e3a8a;
 }
 
 .project-button.secondary:hover {
-  background-color: rgba(37, 99, 235, 0.1);
-}
-
-.no-projects {
-  text-align: center;
-  padding: 3rem;
-  color: #6b7280;
-  font-size: 1.2rem;
-  grid-column: 1 / -1;
+  background-color: rgba(30, 58, 138, 0.1);
 }
 
 /* Responsive adjustments */
-@media (max-width: 768px) {
-  .projects-title {
-    font-size: 2.2rem;
-  }
-  
-  .projects-subtitle {
-    font-size: 1.1rem;
-  }
-  
+@media (max-width: 1600px) {
   .projects-grid {
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
-@media (max-width: 480px) {
-  .projects-header {
-    padding: 3rem 1rem;
+@media (max-width: 1200px) {
+  .projects-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .section-subtitle {
+    font-size: 1.1rem;
   }
   
   .project-actions {
     flex-direction: column;
-    gap: 0.5rem;
   }
   
-  .filter-button {
-    padding: 0.5rem 1rem;
-    font-size: 0.9rem;
+  .project-button {
+    padding: 0.6rem;
   }
-}   
+}

@@ -244,6 +244,60 @@
   padding-right: 40px;
 }
 
+/* User Type Selector Styles */
+.user-type-select {
+  display: flex;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 1.25rem;
+}
+
+.user-type-option {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  cursor: pointer;
+  transition: all 0.3s;
+  background: #f8f9fa;
+  color: #7f8c8d;
+}
+
+.user-type-option.active {
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  color: white;
+}
+
+.user-type-option:not(.active):hover {
+  background: #e9ecef;
+}
+
+.user-type-icon {
+  margin-right: 8px;
+  font-size: 1rem;
+}
+
+.user-type-option span {
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+  .user-type-option {
+    padding: 10px;
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .user-type-icon {
+    margin-right: 0;
+    margin-bottom: 5px;
+  }
+}
+
 /* Responsive Styles */
 @media (max-width: 1200px) {
   .background-section {

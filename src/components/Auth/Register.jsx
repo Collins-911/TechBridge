@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FaUser, FaLock, FaGoogle, FaGithub, FaTwitter, FaEye, FaEyeSlash } from 'react-icons/fa';
+import { FaUser, FaLock, FaGoogle, FaGithub, FaTwitter, FaEye, FaEyeSlash, FaChalkboardTeacher, FaUserGraduate } from 'react-icons/fa';
 import { MdEmail } from "react-icons/md";
-
 import { FiGitlab } from "react-icons/fi";
 import '../../css/login.css';
 
@@ -10,12 +9,13 @@ export default function Register() {
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [userType, setUserType] = useState('student'); // 'student' or 'mentor'
   const [rememberMe, setRememberMe] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log({ fullName, email, password, rememberMe });
+    console.log({ fullName, email, password, userType, rememberMe });
     // You can now handle form submission logic here (e.g., API request)
   };
 
@@ -54,6 +54,8 @@ export default function Register() {
             />
           </div>
 
+        
+
           <div className="input-group">
             <FaLock className="input-icon" />
             <input
@@ -72,6 +74,21 @@ export default function Register() {
             >
               {showPassword ? <FaEye /> : <FaEyeSlash />}
             </button>
+          </div>
+
+            <div className="input-group">
+            <div className="user-type-select">
+              <div className={`user-type-option ${userType === 'student' ? 'active' : ''}`} 
+                   onClick={() => setUserType('student')}>
+                <FaUserGraduate className="user-type-icon" />
+                <span>Student</span>
+              </div>
+              <div className={`user-type-option ${userType === 'mentor' ? 'active' : ''}`} 
+                   onClick={() => setUserType('mentor')}>
+                <FaChalkboardTeacher className="user-type-icon" />
+                <span>Mentor</span>
+              </div>
+            </div>
           </div>
 
           <div className="auth-options">

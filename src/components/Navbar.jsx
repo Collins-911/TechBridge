@@ -58,6 +58,7 @@ export default function Navbar() {
           <Link to="/" className={location.pathname === '/' ? 'active' : ''} onClick={() => setIsOpen(false)} onMouseEnter={handleLinkHover} onMouseLeave={handleLinkLeave}>Home</Link>
           <Link to="/mentors" className={location.pathname === '/mentors' ? 'active' : ''} onClick={() => setIsOpen(false)} onMouseEnter={handleLinkHover} onMouseLeave={handleLinkLeave}>Mentors</Link>
           <Link to="/about" className={location.pathname === '/about' ? 'active' : ''} onClick={() => setIsOpen(false)} onMouseEnter={handleLinkHover} onMouseLeave={handleLinkLeave}>About</Link>
+          <Link to="/projects" className={location.pathname === '/projects' ? 'active' : ''} onClick={() => setIsOpen(false)} onMouseEnter={handleLinkHover} onMouseLeave={handleLinkLeave}>Project</Link>
           <Link to="/connect" className={location.pathname === '/connect' ? 'active' : ''} onClick={() => setIsOpen(false)} onMouseEnter={handleLinkHover} onMouseLeave={handleLinkLeave}>Connect</Link>
         </div>
 

@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import '../../css/projects.css';
-import { FiCode, FiCpu, FiDatabase, FiGlobe, FiLayers, FiMusic, FiSmartphone, FiTrendingUp } from 'react-icons/fi';
+import { FiCode, FiCpu, FiDatabase, FiGlobe, FiLayers, FiSmartphone, FiTrendingUp } from 'react-icons/fi';
 import Navbar from '../components/Navbar';
 
 const projectItems = [
@@ -58,80 +58,77 @@ const projectItems = [
     link: '#',
     icon: <FiDatabase />
   },
+  {
+    id: 7,
+    title: 'Music Streaming Service',
+    description: 'Custom music streaming platform with recommendation engine.',
+    image: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
+    tags: ['React', 'Node.js', 'MongoDB'],
+    link: '#',
+    icon: <FiCode />
+  },
+  {
+    id: 8,
+    title: 'Smart Home Controller',
+    description: 'IoT application for managing smart home devices.',
+    image: 'https://images.unsplash.com/photo-1558002038-1055907df827?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
+    tags: ['React Native', 'IoT', 'Firebase'],
+    link: '#',
+    icon: <FiSmartphone />
+  },
+  {
+    id: 9,
+    title: 'Task Management System',
+    description: 'Collaborative project management tool with real-time updates.',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
+    tags: ['Vue.js', 'Firebase', 'WebSockets'],
+    link: '#',
+    icon: <FiCode />
+  },
+  {
+    id: 10,
+    title: 'Fitness Coach App',
+    description: 'AI-powered personal training application with form analysis.',
+    image: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
+    tags: ['Flutter', 'TensorFlow', 'Firebase'],
+    link: '#',
+    icon: <FiSmartphone />
+  },
 ];
 
 export default function Projects() {
-  const [activeFilter, setActiveFilter] = useState('All');
-  
-  const filters = ['All', 'Web', 'Mobile', 'AI', 'Data', 'Gaming'];
-  
-  const filteredProjects = activeFilter === 'All' 
-    ? projectItems 
-    : projectItems.filter(project => 
-        project.tags.some(tag => tag.toLowerCase().includes(activeFilter.toLowerCase()))
-      );
-
   return (
     <>
-    <Navbar/>
-    <div className="projects-page">
-      <div className="projects-header">
-        <div className="floating-icon icon-1"><FiCode /></div>
-        <div className="floating-icon icon-2"><FiCpu /></div>
-        <div className="floating-icon icon-3"><FiDatabase /></div>
-        <div className="floating-icon icon-4"><FiGlobe /></div>
-        
-        <div className="header-content">
-          <h1 className="projects-title">Our Projects</h1>
-          <p className="projects-subtitle">Explore our portfolio of innovative technical solutions</p>
-        </div>
-      </div>
-      
-      <div className="projects-container">
-        <div className="projects-filters">
-          {filters.map(filter => (
-            <button
-              key={filter}
-              className={`filter-button ${activeFilter === filter ? 'active' : ''}`}
-              onClick={() => setActiveFilter(filter)}
-            >
-              {filter}
-            </button>
-          ))}
-        </div>
-        
-        <div className="projects-grid">
-          {filteredProjects.map((item) => (
-            <div key={item.id} className="project-card">
-              <div className="project-image-container">
-                <img src={item.image} alt={item.title} className="project-image" />
-                <div className="project-icon">{item.icon}</div>
-                <div className="project-tags">
-                  {item.tags.map(tag => (
-                    <span key={tag} className="project-tag">{tag}</span>
-                  ))}
+      <Navbar />
+      <div className="projects-page">
+        <div className="projects-container">
+          <h2 className="section-title">Our Projects</h2>
+          <p className="section-subtitle">Explore our portfolio of innovative technical solutions</p>
+          
+          <div className="projects-grid">
+            {projectItems.map((item) => (
+              <div key={item.id} className="project-card">
+                <div className="project-image-container">
+                  <img src={item.image} alt={item.title} className="project-image" />
+                  <div className="project-tags">
+                    {item.tags.map(tag => (
+                      <span key={tag} className="project-tag">{tag}</span>
+                    ))}
+                  </div>
+                </div>
+                <div className="project-content">
+                  <h3>{item.title}</h3>
+                  <p>{item.description}</p>
+                  <div className="project-actions">
+                    <button className="project-button primary">View Details</button>
+                    <button className="project-button secondary">Live Demo</button>
+                  </div>
                 </div>
               </div>
-              <div className="project-content">
-                <h3>{item.title}</h3>
-                <p>{item.description}</p>
-                <div className="project-actions">
-                  <button className="project-button primary">View Details</button>
-                  <button className="project-button secondary">Live Demo</button>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-        
-        {filteredProjects.length === 0 && (
-          <div className="no-projects">
-            <p>No projects found for this filter. Try another category!</p>
+            ))}
           </div>
-        )}
+        </div>
       </div>
-    </div>
-</>
-  
+    </>
   );
 }

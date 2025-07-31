@@ -5,7 +5,8 @@ import {
   FaJs, FaUserGraduate, FaLaptopCode,
   FaSearch, FaHandshake, FaUsers,
   FaChartLine, FaLightbulb, FaCode,
-  FaServer, FaMobileAlt, FaDatabase
+  FaServer, FaMobileAlt, FaDatabase,
+  FaClock, FaGraduationCap
 } from 'react-icons/fa';
 import { IoRocket, IoLogoJavascript } from 'react-icons/io5';
 import { SiTypescript, SiNextdotjs, SiPostgresql, SiGraphql, SiRedis } from 'react-icons/si';
@@ -37,7 +38,7 @@ export default function Home() {
           
           <div className="hero-content">
             <h1>Accelerate Your Tech Career</h1>
-            <p className="hero-subtitle">1:1 mentorship from industry experts to bridge the gap between learning and professional success</p>
+            <p className="hero-subtitle">One on one mentorship from industry experts to bridge the gap between learning and professional success</p>
             <div className="hero-buttons">
               <Link to="/mentors" className="button primary">
                 <FaUserGraduate /> Find Your Mentor
@@ -80,55 +81,86 @@ export default function Home() {
               <h3>Community Support</h3>
               <p>Join exclusive groups, hackathons, and networking events with peers.</p>
             </div>
+
+            <div className="benefit-card">
+              <div className="benefit-icon"><FaClock /></div>
+              <h3>Flexible Scheduling</h3>
+              <p>Schedule sessions at your convenience with mentors across different timezones.</p>
+            </div>
+
+            <div className="benefit-card">
+              <div className="benefit-icon"><FaGraduationCap /></div>
+              <h3>Career Advancement</h3>
+              <p>Get help with resume reviews, interview prep, and job search strategies.</p>
+            </div>
           </div>
         </section>
 
         {/* Tech Stack Showcase */}
         <section className="tech-stack">
           <div className="section-header">
-            <h2>Master In-Demand Technologies</h2>
-            <p className="section-subtitle">Get mentorship across the modern tech stack</p>
+            <h2>Technologies We Mentor</h2>
+            <p className="section-subtitle">Get expert guidance across all major technologies</p>
           </div>
           
-          <div className="tech-categories">
-            <div className="tech-category">
-              <h3><FaCode /> Frontend</h3>
-              <div className="tech-icons">
-                <FaReact title="React" />
-                <SiNextdotjs title="Next.js" />
-                <IoLogoJavascript title="JavaScript" />
-                <SiTypescript title="TypeScript" />
+          <div className="tech-icons-container">
+            <div className="tech-icons-grid">
+              <div className="tech-icon-item">
+                <FaReact className="tech-icon" title="React" />
+                <span>React</span>
               </div>
-            </div>
-            
-            <div className="tech-category">
-              <h3><FaServer /> Backend</h3>
-              <div className="tech-icons">
-                <FaNodeJs title="Node.js" />
-                <FaPython title="Python" />
-                <DiJava title="Java" />
-                <DiRuby title="Ruby" />
+              <div className="tech-icon-item">
+                <SiNextdotjs className="tech-icon" title="Next.js" />
+                <span>Next.js</span>
               </div>
-            </div>
-            
-            <div className="tech-category">
-              <h3><FaMobileAlt /> Mobile</h3>
-              <div className="tech-icons">
-                <FaReact title="React Native" />
-                <FaMobileAlt title="Flutter" />
-                <FaMobileAlt title="Swift" />
-                <FaMobileAlt title="Kotlin" />
+              <div className="tech-icon-item">
+                <IoLogoJavascript className="tech-icon" title="JavaScript" />
+                <span>JavaScript</span>
               </div>
-            </div>
-            
-            <div className="tech-category">
-              <h3><FaDatabase /> Data & DevOps</h3>
-              <div className="tech-icons">
-                <SiPostgresql title="PostgreSQL" />
-                <FaDocker title="Docker" />
-                <SiRedis title="Redis" />
-                <SiGraphql title="GraphQL" />
+              <div className="tech-icon-item">
+                <SiTypescript className="tech-icon" title="TypeScript" />
+                <span>TypeScript</span>
               </div>
+              <div className="tech-icon-item">
+                <FaNodeJs className="tech-icon" title="Node.js" />
+                <span>Node.js</span>
+              </div>
+              <div className="tech-icon-item">
+                <FaPython className="tech-icon" title="Python" />
+                <span>Python</span>
+              </div>
+              <div className="tech-icon-item">
+                <DiJava className="tech-icon" title="Java" />
+                <span>Java</span>
+              </div>
+              <div className="tech-icon-item">
+                <DiRuby className="tech-icon" title="Ruby" />
+                <span>Ruby</span>
+              </div>
+              <div className="tech-icon-item">
+                <FaReact className="tech-icon" title="React Native" />
+                <span>React Native</span>
+              </div>
+              <div className="tech-icon-item">
+                <FaMobileAlt className="tech-icon" title="Flutter" />
+                <span>Flutter</span>
+              </div>
+              <div className="tech-icon-item">
+                <SiPostgresql className="tech-icon" title="PostgreSQL" />
+                <span>PostgreSQL</span>
+              </div>
+              <div className="tech-icon-item">
+                <FaDocker className="tech-icon" title="Docker" />
+                <span>Docker</span>
+              </div>
+              {/* <div className="tech-icon-item">
+                <SiRedis className="tech-icon" title="Redis" />
+                <span>Redis</span>
+              </div>
+              <div className="tech-icon-item">
+                <SiGraphql className="tech-icon" title="GraphQL" />
+                <span>GraphQL</span>
+              </div> */}
             </div>
           </div>
         </section>
