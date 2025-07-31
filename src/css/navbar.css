@@ -1,0 +1,160 @@
+.navbar {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.navbar-brand a {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.navbar-brand .short-brand {
+  display: none;
+}
+
+.navbar-links {
+  position: relative;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.active-indicator {
+  position: absolute;
+  bottom: 0;
+  height: 2px;
+  background-color: #007bff;
+  transition: all 0.3s ease;
+  opacity: 0;
+}
+
+.navbar-links a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s;
+  padding: 0.5rem 0;
+  position: relative;
+}
+
+.navbar-links a.active {
+  color: #007bff;
+  font-weight: 600;
+}
+
+.navbar-auth {
+  display: flex;
+  gap: 1rem;
+}
+
+.login-btn {
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  color: #007bff;
+  border: 1px solid #007bff;
+  border-radius: 4px;
+  transition: all 0.3s;
+}
+
+.login-btn:hover {
+  background: rgba(0, 123, 255, 0.1);
+}
+
+.signup-btn {
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  color: #fff;
+  background: #007bff;
+  border-radius: 4px;
+  transition: all 0.3s;
+}
+
+.signup-btn:hover {
+  background: #0056b3;
+}
+
+.mobile-menu-btn {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #007bff;
+  top: 0;
+  margin-top: 17px;
+  right: 10px;
+  position: absolute;
+}
+
+@media (max-width: 992px) {
+  .navbar-container {
+    flex-wrap: wrap;
+    padding: 1rem;
+  }
+
+  .navbar-links,
+  .navbar-auth {
+    display: none;
+  }
+
+  .navbar-links.active,
+  .navbar-auth.active {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 1rem 0;
+    gap: 1rem;
+    border-top: 1px solid #eee;
+  }
+
+  .navbar-auth.active {
+    flex-direction: row;
+    justify-content: center;
+    padding-bottom: 0;
+  }
+
+  .mobile-menu-btn {
+    display: block;
+  }
+
+  .navbar-brand .full-brand {
+    display: none;
+  }
+  
+  .navbar-brand .short-brand {
+    display: block;
+  }
+
+  .active-indicator {
+    display: none;
+  }
+
+  .navbar-links a.active {
+    border-left: 3px solid #007bff;
+    padding-left: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .navbar-auth {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .login-btn,
+  .signup-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
