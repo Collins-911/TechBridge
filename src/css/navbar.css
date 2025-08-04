@@ -113,6 +113,7 @@
   position: absolute;
   right: 1rem;
   top: 1rem;
+  z-index: 1001;
 }
 
 .mobile-menu-btn:hover {
@@ -126,27 +127,45 @@
     position: relative;
   }
 
-  .navbar-links,
-  .navbar-auth {
-    display: none;
-  }
-
-  .navbar-links.active,
-  .navbar-auth.active {
-    display: flex;
+  .navbar-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: white;
     flex-direction: column;
-    width: 100%;
-    padding: 1rem 0;
-    gap: 1rem;
+    gap: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, padding 0.3s ease;
+    padding: 0 1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+
+  .navbar-links.active {
+    max-height: 500px; /* Adjust based on your content height */
+    padding: 1rem;
     border-top: 1px solid #e2e8f0;
-    margin-top: 1rem;
+  }
+
+  .navbar-auth {
+    position: absolute;
+    top: calc(100% + 200px); /* Position below navbar-links */
+    left: 0;
+    right: 0;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, padding 0.3s ease;
+    padding: 0 1rem;
+    flex-direction: column;
+    gap: 0.5rem;
   }
 
   .navbar-auth.active {
-    flex-direction: row;
-    justify-content: flex-start;
-    padding-top: 0.5rem;
-    padding-bottom: 0;
+    max-height: 150px; /* Adjust based on your content height */
+    padding: 1rem;
+    border-top: 1px solid #e2e8f0;
   }
 
   .mobile-menu-btn {
@@ -165,6 +184,11 @@
     display: none;
   }
 
+  .navbar-links a {
+    padding: 0.75rem 1rem;
+    transition: all 0.2s ease;
+  }
+
   .navbar-links a.active {
     border-left: 3px solid #3b82f6;
     padding-left: 1rem;
@@ -172,15 +196,14 @@
     background-color: #ebf4ff;
   }
 
-  .navbar-links a {
-    padding: 0.75rem 1rem;
+  .navbar-links a:hover {
+    background-color: #f8fafc;
   }
 }
 
 @media (max-width: 576px) {
   .navbar-auth.active {
     flex-direction: column;
-    gap: 0.5rem;
   }
 
   .login-btn,

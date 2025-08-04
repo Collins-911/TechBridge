@@ -64,7 +64,7 @@ export default function Navbar() {
 
         <div className={`navbar-auth ${isOpen ? 'active' : ''}`}>
           <Link to="/login" className="login-btn" onClick={() => setIsOpen(false)}>Login</Link>
-          <Link to="/signup" className="signup-btn" onClick={() => setIsOpen(false)}>Sign Up</Link>
+          <Link to="/register" className="signup-btn" onClick={() => setIsOpen(false)}>Sign Up</Link>
         </div>
 
         <div className="mobile-menu-btn" onClick={toggleMenu}>

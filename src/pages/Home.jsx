@@ -107,51 +107,51 @@ export default function Home() {
             <div className="tech-icons-grid">
               <div className="tech-icon-item">
                 <FaReact className="tech-icon" title="React" />
-                <span>React</span>
+           
               </div>
               <div className="tech-icon-item">
                 <SiNextdotjs className="tech-icon" title="Next.js" />
-                <span>Next.js</span>
+          
               </div>
               <div className="tech-icon-item">
                 <IoLogoJavascript className="tech-icon" title="JavaScript" />
-                <span>JavaScript</span>
+              
               </div>
               <div className="tech-icon-item">
                 <SiTypescript className="tech-icon" title="TypeScript" />
-                <span>TypeScript</span>
+               
               </div>
               <div className="tech-icon-item">
                 <FaNodeJs className="tech-icon" title="Node.js" />
-                <span>Node.js</span>
+            
               </div>
               <div className="tech-icon-item">
                 <FaPython className="tech-icon" title="Python" />
-                <span>Python</span>
+           
               </div>
               <div className="tech-icon-item">
                 <DiJava className="tech-icon" title="Java" />
-                <span>Java</span>
+              
               </div>
               <div className="tech-icon-item">
                 <DiRuby className="tech-icon" title="Ruby" />
-                <span>Ruby</span>
+               
               </div>
               <div className="tech-icon-item">
                 <FaReact className="tech-icon" title="React Native" />
-                <span>React Native</span>
+             
               </div>
               <div className="tech-icon-item">
                 <FaMobileAlt className="tech-icon" title="Flutter" />
-                <span>Flutter</span>
+              
               </div>
               <div className="tech-icon-item">
                 <SiPostgresql className="tech-icon" title="PostgreSQL" />
-                <span>PostgreSQL</span>
+              
               </div>
               <div className="tech-icon-item">
                 <FaDocker className="tech-icon" title="Docker" />
-                <span>Docker</span>
+               
               </div>
               {/* <div className="tech-icon-item">
                 <SiRedis className="tech-icon" title="Redis" />

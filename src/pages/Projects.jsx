@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../css/projects.css';
+import '../css/projects.css';
 import { FiCode, FiCpu, FiDatabase, FiGlobe, FiLayers, FiSmartphone, FiTrendingUp } from 'react-icons/fi';
 import Navbar from '../components/Navbar';
 

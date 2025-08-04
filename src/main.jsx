@@ -6,8 +6,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './css/general.css'
 
 //AUTH
-import Login from './components/Auth/Login.jsx'
-import Register from './components/Auth/Register.jsx'
+import Login from './pages/Auth/Login.jsx'
+import Register from './pages/Auth/Register.jsx'
 
 import Home from './pages/Home';
 import Mentors from './pages/Mentors.jsx'
