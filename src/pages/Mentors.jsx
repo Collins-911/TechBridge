@@ -11,11 +11,7 @@ export default function Mentors() {
   { id: 3, name: 'Collins Acheng', expertise: 'Full Stack Development', rating: 8.7, sessions: 80 },
   { id: 4, name: 'Idara Excellence', expertise: 'Full Stack Development', rating: 8.6, sessions: 65 },
   { id: 5, name: 'Daneil', expertise: 'Back End Web Development', rating: 8.6, sessions: 110 },
-  { id: 6, name: 'Emily Davis', expertise: 'Machine Learning', rating: 4.8, sessions: 75 },
-  { id: 7, name: 'Collins Best', expertise: 'DevOps Engineering', rating: 4.7, sessions: 88 },
-  { id: 8, name: 'Ada Acheng', expertise: 'Artificial Intelligence', rating: 4.9, sessions: 102 },
-  { id: 9, name: 'Idara Emmanuel', expertise: 'Cybersecurity', rating: 4.8, sessions: 93 },
-  { id: 10, name: 'Daniel Daneil', expertise: 'Blockchain Development', rating: 4.6, sessions: 79 }
+
 ];
  
 

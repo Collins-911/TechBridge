@@ -24,9 +24,7 @@
   transition: color 0.3s ease;
 }
 
-.navbar-brand a:hover {
-  color: #3b82f6;
-}
+
 
 .navbar-brand .short-brand {
   display: none;
@@ -42,7 +40,7 @@
   position: absolute;
   bottom: 0;
   height: 3px;
-  background-color: #3b82f6;
+  background-color: #1e3a8a;
   transition: all 0.3s ease;
   opacity: 0;
   border-radius: 3px 3px 0 0;
@@ -156,7 +154,7 @@
     background-color: white;
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease-out, padding 0.3s ease;
+    transition: 0.3s ease-outs;
     padding: 0 1rem;
     flex-direction: column;
     gap: 0.5rem;

@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FaUser, FaLock, FaGoogle, FaGithub, FaTwitter, FaEye, FaEyeSlash} from 'react-icons/fa';
+import { FaLock,FaGithub,FaEye, FaEyeSlash} from 'react-icons/fa';
 import { MdEmail } from "react-icons/md";
-import { FiGitlab } from "react-icons/fi";
+import { FcGoogle } from "react-icons/fc";
+
 import '../../css/login.css'
 
 export default function Login() {
@@ -87,17 +88,13 @@ export default function Login() {
 
           <div className="social-auth">
             <button type="button" className="social-button google">
-              <FaGoogle /> 
+              <FcGoogle />
             </button>
+
             <button type="button" className="social-button github">
               <FaGithub />
             </button>
-            <button type="button" className="social-button twitter">
-              <FaTwitter /> 
-            </button>
-            <button type="button" className="social-button gitlab">
-              <FiGitlab /> 
-            </button>
+            
           </div>
 
           <div className="auth-footer">
