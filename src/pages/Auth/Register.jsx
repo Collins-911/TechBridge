@@ -1,22 +1,51 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { FaUser, FaLock, FaGoogle, FaGithub, FaEye, FaEyeSlash, FaChalkboardTeacher, FaUserGraduate } from 'react-icons/fa';
+import { Link, useNavigate } from 'react-router-dom';
+import { FaUser, FaLock, FaGithub, FaEye, FaEyeSlash, FaChalkboardTeacher, FaUserGraduate
+} from 'react-icons/fa';
 import { MdEmail } from "react-icons/md";
 import { FcGoogle } from "react-icons/fc";
+import axios from 'axios';
+import Swal from 'sweetalert2';
+import BASE_URL from './config.js';
 import '../../css/login.css';
 
 export default function Register() {
-  const [fullName, setFullName] = useState('');
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [userType, setUserType] = useState('student'); // 'student' or 'mentor'
-  const [rememberMe, setRememberMe] = useState(false);
+  const [role, setRole] = useState('Student'); 
+  const [rememberMe, setRememberMe] = useState(false); 
   const [showPassword, setShowPassword] = useState(false);
 
-  const handleSubmit = (e) => {
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log({ fullName, email, password, userType, rememberMe });
-    // You can now handle form submission logic here (e.g., API request)
+    try {
+      const res = await axios.post(`${BASE_URL}/auth/register`, {
+        name,
+        email,
+        password,
+        role, 
+      });
+
+      Swal.fire({
+        icon: 'success',
+        title: 'Registered successfully!',
+        text: 'You can now login to your account.',
+        timer: 2500,
+        showConfirmButton: false,
+      });
+
+      navigate('/');
+    } catch (err) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Registration Failed',
+        text: err.response?.data?.message || err.message,
+      });
+      console.error('Registration error:', err);
+    }
   };
 
   return (
@@ -35,8 +64,8 @@ export default function Register() {
             <input
               type="text"
               placeholder="Full Name"
-              value={fullName}
-              onChange={(e) => setFullName(e.target.value)}
+              value={name}
+              onChange={(e) => setName(e.target.value)}
               autoComplete="name"
               required
             />
@@ -53,8 +82,6 @@ export default function Register() {
               required
             />
           </div>
-
-        
 
           <div className="input-group">
             <FaLock className="input-icon" />
@@ -76,15 +103,19 @@ export default function Register() {
             </button>
           </div>
 
-            <div className="input-group">
+          <div className="input-group">
             <div className="user-type-select">
-              <div className={`user-type-option ${userType === 'student' ? 'active' : ''}`} 
-                   onClick={() => setUserType('student')}>
+              <div
+                className={`user-type-option ${role === 'Student' ? 'active' : ''}`}
+                onClick={() => setRole('Student')}
+              >
                 <FaUserGraduate className="user-type-icon" />
                 <span>Student</span>
               </div>
-              <div className={`user-type-option ${userType === 'mentor' ? 'active' : ''}`} 
-                   onClick={() => setUserType('mentor')}>
+              <div
+                className={`user-type-option ${role === 'Mentor' ? 'active' : ''}`}
+                onClick={() => setRole('Mentor')}
+              >
                 <FaChalkboardTeacher className="user-type-icon" />
                 <span>Mentor</span>
               </div>
@@ -112,12 +143,11 @@ export default function Register() {
 
           <div className="social-auth">
             <button type="button" className="social-button google">
-                  <FcGoogle />
+              <FcGoogle />
             </button>
             <button type="button" className="social-button github">
               <FaGithub />
             </button>
-           
           </div>
 
           <div className="auth-footer">
