@@ -1,29 +1,67 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { FaLock,FaGithub,FaEye, FaEyeSlash} from 'react-icons/fa';
-import { MdEmail } from "react-icons/md";
-import { FcGoogle } from "react-icons/fc";
-
-import '../../css/login.css'
+import { Link, useNavigate } from 'react-router-dom';
+import { FaLock, FaGithub, FaEye, FaEyeSlash, FaUser} from 'react-icons/fa';
+import { MdEmail } from 'react-icons/md';
+import { FcGoogle } from 'react-icons/fc';
+import axios from 'axios';
+import Swal from 'sweetalert2';
+import BASE_URL from './config.js';
+import '../../css/login.css';
 
 export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [rememberMe, setRememberMe] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const [name, setName] = useState('');
+  const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log({ email, password, rememberMe });
+
+    if (password.length < 6) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Password too short',
+        text: 'Password must be at least 6 characters',
+      });
+      return;
+    }
+
+    try {
+      const response = await axios.post(`${BASE_URL}/auth/login`, {
+        email,
+        password,
+        name
+      });
+
+      const { token, message } = response.data;
+
+      if (rememberMe) {
+        localStorage.setItem('authToken', token);
+      } else {
+        sessionStorage.setItem('authToken', token);
+      }
+
+      Swal.fire({
+        icon: 'success',
+        title: 'Login successful!',
+        text: message || 'Welcome back!',
+      });
+
+      navigate('/');
+    } catch (error) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Login failed',
+        text: error.response?.data?.message || 'Invalid credentials',
+      });
+    }
   };
-  
-  
 
   return (
     <div className="login-container">
-      <div className="background-section">
-
-</div>
+      <div className="background-section"></div>
 
       <div className="auth-card">
         <div className="auth-header">
@@ -32,6 +70,19 @@ export default function Login() {
         </div>
 
         <form onSubmit={handleSubmit} className="auth-form">
+                <div className="input-group">
+        <FaUser className="input-icon" />
+        <input
+          type="text"
+          placeholder="Full Name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          autoComplete="name"
+          required
+        />
+</div>
+
+
           <div className="input-group">
             <MdEmail className="input-icon" />
             <input
@@ -47,18 +98,18 @@ export default function Login() {
           <div className="input-group">
             <FaLock className="input-icon" />
             <input
-              type={showPassword ? "text" : "password"}
+              type={showPassword ? 'text' : 'password'}
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               autoComplete="current-password"
               required
             />
-            <button 
-              type="button" 
+            <button
+              type="button"
               className="password-toggle"
               onClick={() => setShowPassword(!showPassword)}
-              aria-label={showPassword ? "Hide password" : "Show password"}
+              aria-label={showPassword ? 'Hide password' : 'Show password'}
             >
               {showPassword ? <FaEye /> : <FaEyeSlash />}
             </button>
@@ -82,19 +133,16 @@ export default function Login() {
             Login
           </button>
 
-          <div className="divider">
-            <span>OR</span>
-          </div>
+          <div className="divider"><span>OR</span></div>
 
           <div className="social-auth">
-            <button type="button" className="social-button google">
-              <FcGoogle />
+            <button type="button" className="social-button google" title="Sign in with Google">
+              <span className="google-icon"><FcGoogle /></span>
             </button>
 
-            <button type="button" className="social-button github">
+            <button type="button" className="social-button github" title="Sign in with GitHub">
               <FaGithub />
             </button>
-            
           </div>
 
           <div className="auth-footer">
