@@ -1,0 +1,105 @@
+.profile-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.profile-avatar img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 30px;
+  border: 3px solid #4a6fa5;
+}
+
+.profile-info h1 {
+  margin: 0;
+  font-size: 28px;
+  color: #222;
+}
+
+.profile-info p {
+  margin: 5px 0 15px;
+  color: #666;
+}
+
+.profile-stats {
+  display: flex;
+  gap: 20px;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-number {
+  display: block;
+  font-weight: bold;
+  font-size: 18px;
+  color: #4a6fa5;
+}
+
+.stat-label {
+  font-size: 14px;
+  color: #777;
+}
+
+.profile-content {
+  padding: 0 10px;
+}
+
+.profile-section {
+  margin-bottom: 30px;
+}
+
+.profile-section h2 {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 8px;
+  color: #4a6fa5;
+}
+
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.skill-tag {
+  background-color: #e1e8f0;
+  padding: 5px 12px;
+  border-radius: 15px;
+  font-size: 14px;
+  color: #4a6fa5;
+}
+
+.experience-item {
+  margin-bottom: 20px;
+}
+
+.experience-item h3 {
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.experience-period {
+  color: #777;
+  font-size: 14px;
+  margin: 0 0 8px;
+}
+
+.experience-desc {
+  margin: 0;
+  line-height: 1.5;
+}

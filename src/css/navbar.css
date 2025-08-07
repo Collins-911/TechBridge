@@ -24,26 +24,9 @@
   transition: color 0.3s ease;
 }
 
-
-
-.navbar-brand .short-brand {
-  display: none;
-}
-
 .navbar-links {
-  position: relative;
   display: flex;
   gap: 2rem;
-}
-
-.active-indicator {
-  position: absolute;
-  bottom: 0;
-  height: 3px;
-  background-color: #1e3a8a;
-  transition: all 0.3s ease;
-  opacity: 0;
-  border-radius: 3px 3px 0 0;
 }
 
 .navbar-links a {
@@ -62,6 +45,7 @@
 .navbar-links a.active {
   color: #1e3a8a;
   font-weight: 600;
+  border-bottom: 3px solid #1e3a8a;
 }
 
 .navbar-auth {
@@ -108,10 +92,6 @@
   cursor: pointer;
   color: #1e3a8a;
   transition: color 0.3s ease;
-  position: absolute;
-  right: 1rem;
-  top: 1rem;
-  z-index: 1001;
 }
 
 .mobile-menu-btn:hover {
@@ -135,51 +115,44 @@
     gap: 0;
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease-out, padding 0.3s ease;
+    transition: max-height 0.3s ease-out;
     padding: 0 1rem;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 1000;
   }
 
   .navbar-links.active {
-    max-height: 500px; /* Adjust based on your content height */
+    max-height: 500px;
     padding: 1rem;
     border-top: 1px solid #e2e8f0;
   }
 
   .navbar-auth {
     position: absolute;
-    top: calc(100% + 200px); /* Position below navbar-links */
+    top: calc(100% + 200px);
     left: 0;
     right: 0;
     background-color: white;
     max-height: 0;
     overflow: hidden;
-    transition: 0.3s ease-outs;
+    transition: max-height 0.3s ease-out;
     padding: 0 1rem;
     flex-direction: column;
     gap: 0.5rem;
+    z-index: 1000;
   }
 
   .navbar-auth.active {
-    max-height: 150px; /* Adjust based on your content height */
+    max-height: 150px;
     padding: 1rem;
     border-top: 1px solid #e2e8f0;
   }
 
   .mobile-menu-btn {
     display: block;
-  }
-
-  .navbar-brand .full-brand {
-    display: none;
-  }
-  
-  .navbar-brand .short-brand {
-    display: block;
-  }
-
-  .active-indicator {
-    display: none;
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
   }
 
   .navbar-links a {
@@ -189,6 +162,7 @@
 
   .navbar-links a.active {
     border-left: 3px solid #3b82f6;
+    border-bottom: none;
     padding-left: 1rem;
     color: #1e3a8a;
     background-color: #ebf4ff;

@@ -94,7 +94,7 @@ export default function Connect() {
                 <FaEnvelope className="info-icon" />
                 <div>
                   <h3>Email</h3>
-                  <a href="mailto:contact@techbridge2025.com">contact@techbridge2025.com</a>
+                  <a href="mailto:contact@techbridge2025.com">emelumbacollins@gmail.com</a>
                 </div>
               </div>
               
@@ -102,7 +102,7 @@ export default function Connect() {
                 <FaPhone className="info-icon" />
                 <div>
                   <h3>Phone</h3>
-                  <a href="tel:+2341234567890">+234 123 456 7890</a>
+                  <a href="tel:+2341234567890">+234 903 449 3443</a>
                 </div>
               </div>
               
@@ -110,7 +110,7 @@ export default function Connect() {
                 <FaMapMarkerAlt className="info-icon" />
                 <div>
                   <h3>Office</h3>
-                  <p>12 Innovation Drive, Lagos Tech Park, Nigeria</p>
+                  <p>Solomon Street, Nugi Innovation Nigeria</p>
                 </div>
               </div>
               

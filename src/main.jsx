@@ -14,6 +14,7 @@ import Mentors from './pages/Mentors.jsx'
 import Projects from './pages/Projects.jsx'
 import About from './pages/About.jsx'
 import Connect from './pages/Connect.jsx'
+import Profile from './pages/Profile.jsx';
 
 
 
@@ -30,6 +31,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
        <Route path="/projects" element={<Projects/>} />
        <Route path="/about" element={<About/>} />
        <Route path="/connect" element={<Connect/>} />
+       <Route path="/profile" element={<Profile />} />
 
     </Routes>
   </BrowserRouter>
