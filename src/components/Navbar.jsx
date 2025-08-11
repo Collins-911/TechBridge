@@ -1,18 +1,30 @@
-import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { FaBars, FaTimes } from 'react-icons/fa';
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { FaBars, FaTimes, FaUserCircle } from 'react-icons/fa';
 import '../css/navbar.css';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [user, setUser] = useState(null);
   const location = useLocation();
+  const navigate = useNavigate();
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
+  useEffect(() => {
+    // Try to get from localStorage or sessionStorage
+    const savedUser = localStorage.getItem('user') || sessionStorage.getItem('user');
+    if (savedUser) {
+      setUser(JSON.parse(savedUser));
+    }
+  }, []);
 
-  const closeMenu = () => {
-    setIsOpen(false);
+  const toggleMenu = () => setIsOpen(!isOpen);
+  const closeMenu = () => setIsOpen(false);
+
+  const handleLogout = () => {
+    localStorage.clear();
+    sessionStorage.clear();
+    setUser(null);
+    navigate('/login');
   };
 
   return (
@@ -31,8 +43,18 @@ export default function Navbar() {
         </div>
 
         <div className={`navbar-auth ${isOpen ? 'active' : ''}`}>
-          <Link to="/login" className="login-btn" onClick={closeMenu}>Login</Link>
-          <Link to="/register" className="signup-btn" onClick={closeMenu}>Sign Up</Link>
+          {user ? (
+            <div className="profile-section">
+              <FaUserCircle className="profile-icon" />
+              <span className="profile-name">{user.name}</span>
+              <button className="logout-btn" onClick={handleLogout}>Logout</button>
+            </div>
+          ) : (
+            <>
+              <Link to="/login" className="login-btn" onClick={closeMenu}>Login</Link>
+              <Link to="/register" className="signup-btn" onClick={closeMenu}>Sign Up</Link>
+            </>
+          )}
         </div>
 
         <div className="mobile-menu-btn" onClick={toggleMenu}>

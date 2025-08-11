@@ -22,6 +22,16 @@ export default function Register() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (password.length < 6) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Weak Password',
+        text: 'Password must be at least 6 characters long.',
+      });
+      return;
+    }
+
     setIsLoading(true);
     
     try {
@@ -56,7 +66,6 @@ export default function Register() {
 
   return (
     <div className="login-container">
-      {/* Show Loader when isLoading is true */}
       {isLoading && <Loader />}
       
       <div className="background-section"></div>

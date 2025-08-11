@@ -14,7 +14,7 @@ export default function Login() {
   const [password, setPassword] = useState('');
   const [rememberMe, setRememberMe] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
-  const [name, setName] = useState('');
+  // const [name, setName] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
@@ -36,7 +36,7 @@ export default function Login() {
       const response = await axios.post(`${BASE_URL}/auth/login`, {
         email,
         password,
-        name
+        // name
       });
 
       const { token, message } = response.data;
@@ -79,7 +79,7 @@ export default function Login() {
         </div>
 
         <form onSubmit={handleSubmit} className="auth-form">
-          <div className="input-group">
+          {/* <div className="input-group">
             <FaUser className="input-icon" />
             <input
               type="text"
@@ -90,7 +90,7 @@ export default function Login() {
               required
               disabled={isLoading}
             />
-          </div>
+          </div> */}
 
           <div className="input-group">
             <MdEmail className="input-icon" />

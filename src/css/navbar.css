@@ -97,6 +97,35 @@
 .mobile-menu-btn:hover {
   color: #3b82f6;
 }
+.profile-section {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.profile-icon {
+  font-size: 1.8rem;
+  color: #1e3a8a;
+}
+
+.profile-name {
+  font-weight: 500;
+}
+
+.logout-btn {
+  padding: 0.3rem 0.8rem;
+  background: #dc2626;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.logout-btn:hover {
+  background: #b91c1c;
+}
+
 
 @media (max-width: 992px) {
   .navbar-container {
