@@ -44,10 +44,10 @@
 }
 
 .stat-number {
-  display: block;
+  /* display: block;
   font-weight: bold;
   font-size: 18px;
-  color: #4a6fa5;
+  color: #4a6fa5; */
 }
 
 .stat-label {

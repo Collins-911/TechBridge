@@ -103,7 +103,7 @@ export default function Login() {
               required
               disabled={isLoading}
             />
-          </div>
+          </div>  
 
           <div className="input-group">
             <FaLock className="input-icon" />
@@ -171,6 +171,7 @@ export default function Login() {
               <FaGithub />
             </button>
           </div>
+        
 
           <div className="auth-footer">
             Don't have an account? <Link to="/register">Register</Link>

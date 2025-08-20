@@ -17,10 +17,6 @@ import Connect from './pages/Connect.jsx'
 import Profile from './pages/Profile.jsx';
 
 
-
-
-
-
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
     <Routes>
@@ -32,7 +28,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
        <Route path="/about" element={<About/>} />
        <Route path="/connect" element={<Connect/>} />
        <Route path="/profile" element={<Profile />} />
-
     </Routes>
   </BrowserRouter>
 );

@@ -10,7 +10,7 @@ export default function Navbar() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Try to get from localStorage or sessionStorage
+
     const savedUser = localStorage.getItem('user') || sessionStorage.getItem('user');
     if (savedUser) {
       setUser(JSON.parse(savedUser));
@@ -20,7 +20,7 @@ export default function Navbar() {
   const toggleMenu = () => setIsOpen(!isOpen);
   const closeMenu = () => setIsOpen(false);
 
-  const handleLogout = () => {
+  const handleLogout = () => { x
     localStorage.clear();
     sessionStorage.clear();
     setUser(null);
