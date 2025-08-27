@@ -17,11 +17,14 @@
 }
 
 .navbar-brand a {
-  font-size: 1.5rem;
+  font-size: 1.9rem;
   font-weight: 700;
   color: #1e3a8a;
   text-decoration: none;
   transition: color 0.3s ease;
+  left: 50px;
+  position: absolute;
+  top: 25px;
 }
 
 .navbar-links {
@@ -51,6 +54,8 @@
 .navbar-auth {
   display: flex;
   gap: 1rem;
+  right: 50px;
+  position: absolute;
 }
 
 .login-btn {

@@ -13,10 +13,10 @@ export default function Register() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [role, setRole] = useState('Student');
   const [rememberMe, setRememberMe] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [role, setRole] = useState('student');
 
   const navigate = useNavigate();
 
@@ -35,30 +35,45 @@ export default function Register() {
     setIsLoading(true);
     
     try {
-      const res = await axios.post(`${BASE_URL}/auth/register`, {
+      const response = await axios.post(`${BASE_URL}/auth/register`, {
         name,
         email,
         password,
         role,
       });
 
+      const { token, user } = response.data;
+
+      if (rememberMe) {
+        localStorage.setItem('authToken', token);
+        localStorage.setItem('user', JSON.stringify(user));
+      } else {
+        sessionStorage.setItem('authToken', token);
+        sessionStorage.setItem('user', JSON.stringify(user));
+      }
+
       setIsLoading(false);
       
       await Swal.fire({
         icon: 'success',
         title: 'Registered successfully!',
-        text: 'You can now login to your account.',
+        text: 'Your account has been created and you are now logged in.',
         timer: 2500,
         showConfirmButton: false,
       });
 
-      navigate('/login');
+      if (role === 'mentor') {
+        navigate('/profile');
+      } else {
+        navigate('/');
+      }
+
     } catch (err) {
       setIsLoading(false);
       Swal.fire({
         icon: 'error',
         title: 'Registration Failed',
-        text: err.response?.data?.message || err.message,
+        text: err.response?.data?.message || 'An error occurred during registration',
       });
       console.error('Registration error:', err);
     }
@@ -125,21 +140,21 @@ export default function Register() {
             </button>
           </div>
 
-          <div className="input-group">
+          <div className="user-type-container">
             <div className="user-type-select">
-              <div
-                className={`user-type-option ${role === 'Student' ? 'active' : ''}`}
-                onClick={() => !isLoading && setRole('Student')}
+              <div 
+                className={`user-type-option ${role === 'student' ? 'active' : ''}`}
+                onClick={() => setRole('student')}
               >
                 <FaUserGraduate className="user-type-icon" />
-                <span>Student</span>
+                Student
               </div>
-              <div
-                className={`user-type-option ${role === 'Mentor' ? 'active' : ''}`}
-                onClick={() => !isLoading && setRole('Mentor')}
+              <div 
+                className={`user-type-option ${role === 'mentor' ? 'active' : ''}`}
+                onClick={() => setRole('mentor')}
               >
                 <FaChalkboardTeacher className="user-type-icon" />
-                <span>Mentor</span>
+                Mentor
               </div>
             </div>
           </div>

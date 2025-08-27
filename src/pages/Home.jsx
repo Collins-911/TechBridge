@@ -19,7 +19,7 @@ import ScrollToTop from '../components/ScrollToTop';
 
 export default function Home() {
 useEffect(() => {
-  AOS.init({ duration: 1000, once: true });
+  AOS.init({ duration: 400, once: true });
 }, []);
 
 
