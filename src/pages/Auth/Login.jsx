@@ -5,7 +5,7 @@ import { MdEmail } from 'react-icons/md';
 import { FcGoogle } from 'react-icons/fc';
 import axios from 'axios';
 import Swal from 'sweetalert2';
-import BASE_URL from './config.js';
+import BASE_URL from '../../config.js';
 import Loader from '../../components/Loader.jsx';
 import '../../css/login.css';
 
