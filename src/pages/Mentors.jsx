@@ -5,6 +5,7 @@ import Navbar from '../components/Navbar';
 import { FaFire } from "react-icons/fa";
 import axios from 'axios';
 import ScrollToTop from '../components/ScrollToTop';
+import BASE_URL from '../config.js'
 
 export default function Mentors() {
   const [mentors, setMentors] = useState([]);
@@ -24,7 +25,7 @@ export default function Mentors() {
   useEffect(() => {
     const fetchMentors = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/users/mentors");
+        const res = await axios.get(`${BASE_URL}/users/mentors`); // ✅ Fix 2: use BASE_URL
         const data = res.data.mentors;
 
         const parsedMentors = data.map((mentor) => ({
@@ -83,8 +84,8 @@ export default function Mentors() {
         <div className="mentors-grid">
           {mentors.length === 0 ? (
             <div style={{ gridColumn: "1 / -1", textAlign: "center", color: "#6b7280", fontSize: "1.1rem", marginTop: "3rem" }}>
-  No mentors found.
-</div>
+              No mentors found.
+            </div>
           ) : (
             mentors.map((mentor) => (
               <div key={mentor.id} className="mentor-card">
@@ -103,7 +104,7 @@ export default function Mentors() {
                     {Array.from({ length: 5 }).map((_, i) => (
                       <span
                         key={i}
-                        className={i < 4 ? 'star filled' : 'star'} // default 4 stars
+                        className={i < 4 ? 'star filled' : 'star'}
                       >
                         {i < 4 ? '★' : '☆'}
                       </span>
@@ -119,13 +120,13 @@ export default function Mentors() {
                   </span>
                 </div>
 
-               <Link
-  to={`/mentors/${mentor.id}`}
-  className="view-profile-btn"
-  style={{ cursor: "not-allowed", pointerEvents: "none", opacity: 0.6 }}
->
-  View Profile
-</Link>
+                <Link
+                  to={`/mentors/${mentor.id}`}
+                  className="view-profile-btn"
+                  style={{ cursor: "not-allowed", pointerEvents: "none", opacity: 0.6 }}
+                >
+                  View Profile
+                </Link>
               </div>
             ))
           )}
