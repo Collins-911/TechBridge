@@ -3,6 +3,7 @@ import axios from "axios";
 import Navbar from "../components/Navbar";
 import "../css/profile.css";
 import Swal from "sweetalert2";
+import BASE_URL from '../config.js';
 
 export default function Profile() {
   const [user, setUser] = useState(null);
@@ -23,9 +24,9 @@ export default function Profile() {
         const parsed = JSON.parse(storedUser);
         const id = parsed.id;
 
-        const res = await axios.get(`http://localhost:5000/api/users/${id}`, {
-          headers: { Authorization: `Bearer ${token}` },
-        });
+        const res = await axios.get(`${BASE_URL}/users/${id}`, {
+  headers: { Authorization: `Bearer ${token}` },
+});
 
         const data = res.data.user;
 
