@@ -3,7 +3,7 @@ import axios from "axios";
 import Navbar from "../components/Navbar";
 import "../css/profile.css";
 import Swal from "sweetalert2";
-import BASE_URL from '../config.js';
+import BASE_URL from '../config.js'
 
 export default function Profile() {
   const [user, setUser] = useState(null);
@@ -25,8 +25,8 @@ export default function Profile() {
         const id = parsed.id;
 
         const res = await axios.get(`${BASE_URL}/users/${id}`, {
-  headers: { Authorization: `Bearer ${token}` },
-});
+          headers: { Authorization: `Bearer ${token}` },
+        });
 
         const data = res.data.user;
 
@@ -67,6 +67,7 @@ export default function Profile() {
   const handleSave = async () => {
     try {
       const token = localStorage.getItem('token') || sessionStorage.getItem('token');
+      const id = user.id; // ✅ Fix 2: get id from user state
 
       const payload = {
         ...user,
@@ -76,9 +77,12 @@ export default function Profile() {
         experience: JSON.stringify(user.experience || []),
       };
 
-      const res = await axios.put(`http://localhost:5000/api/users/${user.id}`, payload, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      // ✅ Fix 3: correct axios.put — (url, data, config)
+      const res = await axios.put(
+        `${BASE_URL}/users/${id}`,
+        payload,
+        { headers: { Authorization: `Bearer ${token}` } }
+      );
 
       const updatedUser = {
         ...res.data.user,
@@ -92,22 +96,23 @@ export default function Profile() {
       setUser(updatedUser);
       const storage = localStorage.getItem('token') ? localStorage : sessionStorage;
       storage.setItem("user", JSON.stringify(updatedUser));
+
       Swal.fire({
         title: 'Profile Updated',
         text: 'Your profile changes have been saved successfully.',
         icon: 'success',
-       confirmButtonText: 'OK',
-        confirmButtonColor: '#3085d6', 
+        confirmButtonText: 'OK',
+        confirmButtonColor: '#3085d6',
       });
       setEditMode(false);
     } catch (err) {
       console.error(err);
-        Swal.fire({
-              title: 'Error',
-              text: 'Failed to save profile changes. Please try again.',
-              icon: 'error',
-              confirmButtonText: 'OK',  
-            });
+      Swal.fire({
+        title: 'Error',
+        text: 'Failed to save profile changes. Please try again.',
+        icon: 'error',
+        confirmButtonText: 'OK',
+      });
     }
   };
 
