@@ -6,6 +6,7 @@ import { FaFire } from "react-icons/fa";
 import axios from 'axios';
 import ScrollToTop from '../components/ScrollToTop';
 import BASE_URL from '../config.js'
+import Loader from '../components/Loader';
 
 export default function Mentors() {
   const [mentors, setMentors] = useState([]);
@@ -55,7 +56,7 @@ export default function Mentors() {
         <ScrollToTop/>
         <Navbar />
         <div className="mentors-page">
-          <h2>Loading mentors...</h2>
+          <Loader/>
         </div>
       </>
     );

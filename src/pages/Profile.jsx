@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar";
 import "../css/profile.css";
 import Swal from "sweetalert2";
 import BASE_URL from '../config.js'
+import Loader from "../components/Loader.jsx";
 
 export default function Profile() {
   const [user, setUser] = useState(null);
@@ -51,7 +52,7 @@ export default function Profile() {
     fetchUser();
   }, []);
 
-  if (!user) return <p>Loading...</p>;
+  if (!user) return <Loader/>;
 
   const handleChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
